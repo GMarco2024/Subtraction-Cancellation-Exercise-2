@@ -15,6 +15,7 @@
 		901BCFBC2B62F91900949852 /* Subtraction_Cancellation_Exercise_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BCFBB2B62F91900949852 /* Subtraction_Cancellation_Exercise_2UITests.swift */; };
 		901BCFBE2B62F91900949852 /* Subtraction_Cancellation_Exercise_2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BCFBD2B62F91900949852 /* Subtraction_Cancellation_Exercise_2UITestsLaunchTests.swift */; };
 		901BCFCB2B63018200949852 /* Problem1a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BCFCA2B63018200949852 /* Problem1a.swift */; };
+		901BCFCD2B63066D00949852 /* Problem1b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BCFCC2B63066D00949852 /* Problem1b.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		901BCFBB2B62F91900949852 /* Subtraction_Cancellation_Exercise_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtraction_Cancellation_Exercise_2UITests.swift; sourceTree = "<group>"; };
 		901BCFBD2B62F91900949852 /* Subtraction_Cancellation_Exercise_2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtraction_Cancellation_Exercise_2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		901BCFCA2B63018200949852 /* Problem1a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem1a.swift; sourceTree = "<group>"; };
+		901BCFCC2B63066D00949852 /* Problem1b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem1b.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				901BCF9F2B62F91800949852 /* Subtraction_Cancellation_Exercise_2App.swift */,
 				901BCFA12B62F91800949852 /* ContentView.swift */,
 				901BCFCA2B63018200949852 /* Problem1a.swift */,
+				901BCFCC2B63066D00949852 /* Problem1b.swift */,
 				901BCFA32B62F91900949852 /* Assets.xcassets */,
 				901BCFA52B62F91900949852 /* Subtraction_Cancellation_Exercise_2.entitlements */,
 				901BCFA62B62F91900949852 /* Preview Content */,
@@ -264,6 +267,7 @@
 			files = (
 				901BCFCB2B63018200949852 /* Problem1a.swift in Sources */,
 				901BCFA22B62F91800949852 /* ContentView.swift in Sources */,
+				901BCFCD2B63066D00949852 /* Problem1b.swift in Sources */,
 				901BCFA02B62F91800949852 /* Subtraction_Cancellation_Exercise_2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

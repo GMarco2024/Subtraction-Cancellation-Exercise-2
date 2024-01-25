@@ -29,7 +29,7 @@ struct ContentView: View {
                     return
                 }
                 
-                // Calculate results for the input value of N
+                // This calculates the results for the input value of N
                 let (s1, s2, s3) = calculateS(for: Float(n))
                 resultS1 = s1
                 resultS2 = s2
@@ -40,7 +40,7 @@ struct ContentView: View {
             }
             .padding()
             
-            // Display the results of S^(1), S^(2), and S^(3)
+            // Displays the results of S^(1), S^(2), and S^(3)
             Text("S^(1) = \(resultS1)")
             Text("S^(2) = \(resultS2)")
             Text("S^(3) = \(resultS3)")
@@ -53,9 +53,40 @@ struct ContentView: View {
             }
             
             Spacer()
+            
+            // Call view from Problem1b.swift to display the plot
+            Problem1bPlotView()
+                .padding(.bottom) // Add padding at the bottom
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
+    }
+    
+    // Function to calculate S^(1), S^(2), and S^(3) for a given N
+    func calculateS(for N: Float) -> (Float, Float, Float) {
+        var s1: Float = 0.0
+        var s2: Float = 0.0
+        var s3: Float = 0.0
+        
+        // Convert N to an integer
+        let nInt = Int(N)
+        
+        // Calculate S^(1)
+        for n in 1...(2 * nInt) {
+            s1 += pow(-1.0, Float(n)) * Float(n) / Float(n + 1)
+        }
+        
+        // Calculate S^(2)
+        for n in 1...nInt {
+            s2 -= (2 * Float(n) - 1) / (2 * Float(n)) + 2 * Float(n) / (2 * Float(n) + 1)
+        }
+        
+        // Calculate S^(3)
+        for n in 1...nInt {
+            s3 += 2 * Float(n) / (2 * Float(n) + 1)
+        }
+        
+        return (s1, s2, s3)
     }
 }
 
@@ -64,7 +95,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
 
 
 
