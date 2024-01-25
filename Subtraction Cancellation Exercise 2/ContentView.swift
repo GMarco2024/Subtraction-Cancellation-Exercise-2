@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    // Function to calculate S^(1), S^(2), and S^(3)
-    func calculateS() -> (Float, Float, Float) {
+    // Function to calculate S^(1), S^(2), and S^(3) for a given N
+    func calculateS(for N: Float) -> (Float, Float, Float) {
         var s1: Float = 0.0
         var s2: Float = 0.0
         var s3: Float = 0.0
@@ -28,7 +28,10 @@ struct ContentView: View {
         return (s1, s2, s3)
     }
     
-    let N: Float = 100 // Define the value of N
+    @State private var inputN: String = ""
+    @State private var resultS1: Float = 0.0
+    @State private var resultS2: Float = 0.0
+    @State private var resultS3: Float = 0.0
     
     var body: some View {
         VStack {
@@ -37,11 +40,27 @@ struct ContentView: View {
                 .font(.system(size: 20))
                 .padding(.top, 20)
             
+            TextField("Enter N", text: $inputN)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
+            Button("Calculate") {
+                // Calculate results for the input value of N
+                if let n = Float(inputN) {
+                    let (s1, s2, s3) = calculateS(for: n)
+                    resultS1 = s1
+                    resultS2 = s2
+                    resultS3 = s3
+                }
+            }
+            .padding()
+            
             // Display the results of S^(1), S^(2), and S^(3)
-            let (resultS1, resultS2, resultS3) = calculateS()
             Text("S^(1) = \(resultS1)")
             Text("S^(2) = \(resultS2)")
             Text("S^(3) = \(resultS3)")
+            
+            Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
@@ -53,6 +72,8 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
 
 
 
