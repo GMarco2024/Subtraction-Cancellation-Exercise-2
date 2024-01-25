@@ -1,0 +1,20 @@
+Equation 2.10
+
+S_N^{(1)} = \sum_{n=1}^{2N} \left((-1)^n \frac{n}{n+1}\right)
+
+Equation 2.11
+
+S_N^{(2)} = -\sum_{n=1}^{N} \left(\frac{2n-1}{2n}\right) + \sum_{n=1}^N \frac{2n}{2n+1}
+
+Equation 2.12
+
+S_N^{(3)} = \sum_{n=1}^{N} \frac{2n}{2n+1}
+
+
+equation 2.121
+
+\text{log}_{10} \left[ \left| \frac{S_N^{(1)} - S_N^{(3)}}{S_N^{(3)}} \right| \right]
+
+Equation 2.122
+
+\text{log}_{10}(N)

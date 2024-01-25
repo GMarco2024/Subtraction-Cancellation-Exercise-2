@@ -1,24 +1,25 @@
-//
-//  ContentView.swift
-//  Subtraction Cancellation Exercise 2
-//
-//  Created by PHYS 440 Marco on 1/25/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, Jupiter!")
+            Text("S(1), S(2), S(3) Calculations")
+                .underline(true, color: .black)
+                .font(.system(size: 20))
+                .padding(.top, 20) // Add padding to separate title from top edge
+            Spacer()
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
+
+
+
+
+
