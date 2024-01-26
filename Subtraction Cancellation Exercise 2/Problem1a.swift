@@ -1,3 +1,12 @@
+//
+//  ContentView.swift
+//
+//  Homework 2
+//  Problem 2a - Write a single precision program that calcaultes S^(1), S^(2), and S^(3).
+//
+//  Marco Gonzalez PHYS-440
+//
+
 import Foundation
 
 func calculateS(for N: Float) -> (Float, Float, Float) {

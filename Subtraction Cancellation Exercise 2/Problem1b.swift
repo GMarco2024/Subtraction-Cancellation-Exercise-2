@@ -1,3 +1,12 @@
+//
+//  ContentView.swift
+//
+//  Homework 2
+//  Problem 2b - Assume S^(3) to be the exact answer. Plot a log-log plot...
+//
+//  Marco Gonzalez PHYS-440
+//
+
 import SwiftUI
 
 struct Problem1bPlotView: View {
