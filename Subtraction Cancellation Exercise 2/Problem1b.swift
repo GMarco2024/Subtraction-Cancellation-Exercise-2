@@ -6,6 +6,7 @@
 //
 //  Marco Gonzalez PHYS-440
 //
+// This is just a "test". I'm just using copied data to visual how the plot would show up in the ContentView.swift's GUI
 
 import SwiftUI
 
@@ -18,7 +19,7 @@ struct Problem1bPlotView: View {
                 .padding(.top, 20)
             
             GeometryReader { geometry in
-                // Draw the plot
+                // This grabs the data and plots it
                 Path { path in
                     let data: [(Double, Double)] = [
                         (-2.0, 7.38905609893065),

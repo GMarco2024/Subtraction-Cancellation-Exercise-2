@@ -47,7 +47,7 @@ struct ContentView: View {
                     return
                 }
                 
-        // This calculates the results for the input value of N
+        // This calls the function calculatesS for the results of s1, s2, s3
                 
                 let (s1, s2, s3) = calculateS(for: Float(n))
                 resultS1 = s1
