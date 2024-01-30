@@ -21,10 +21,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Text("S(1), S(2), S(3) Calculations")
+            Text("Problem 2a - S(1), S(2), S(3) Calculations")
                 .underline(true, color: .black)
                 .font(.system(size: 20))
                 .padding(.top, 20)
+            
+            // Description of the test case for quadratic roots
+            Text("Single precision program")
+                .font(.headline)
+                .fontWeight(.regular)
+            
             
       //Displays the calculations for S^(1), S^(2), and S^(3)
             
