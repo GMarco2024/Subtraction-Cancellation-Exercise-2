@@ -9,6 +9,7 @@ struct ContentView: View {
     @State private var iterations: [Int] = []
     
     var body: some View {
+        ScrollView{
         VStack {
             Text("Problem 2a - S(1), S(2), S(3) Calculations")
                 .underline(true, color: .black)
@@ -70,7 +71,7 @@ struct ContentView: View {
                 .fontWeight(.regular)                    }
                 }
             }
-      
+}
             
             
 
