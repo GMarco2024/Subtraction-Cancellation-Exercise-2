@@ -78,12 +78,13 @@ struct ContentView: View {
                     .frame(width: 300, height: 300)
                     .padding(.vertical, -100)
                 
-                
                 Text("We assume S^(3) is correct. We generate a Log-Log plot based off 1,000,000 iterations for the following versus below:")
                     .font(.headline)
                     .fontWeight(.regular)
                 
-                TextField("Enter N. Ex: 1,000,000", text: $inputN2)
+          //This displays a plot based on the entered N. Question 2b asks to input 1,000,000 for N. We can also test this plot generator by putting a small N such as N = 5 for 5 plot points.
+                
+                TextField("Enter N (Ex: 1,000,000)", text: $inputN2)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding()
                 
