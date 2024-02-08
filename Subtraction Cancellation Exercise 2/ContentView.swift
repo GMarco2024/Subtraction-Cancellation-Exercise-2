@@ -25,6 +25,7 @@ struct ContentView: View {
                 //Displays the calculations for S^(1), S^(2), and S^(3)
                 TextField("Enter N", text: $inputN)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(maxWidth:450)
                     .padding()
                 
                 Button("Calculate") {
@@ -86,6 +87,7 @@ struct ContentView: View {
                 
                 TextField("Enter N (Ex: 1,000,000)", text: $inputN2)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(maxWidth:450)
                     .padding()
                 
                 Button("Calculate") {
