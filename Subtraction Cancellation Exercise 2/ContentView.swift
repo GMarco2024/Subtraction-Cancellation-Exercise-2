@@ -91,14 +91,13 @@ struct ContentView: View {
                     .padding()
                 
                 Button("Calculate") {
-                    guard let n2 = Int(inputN2) else {
+                    guard Int(inputN2) != nil else {
                         return
                         
                     }
                 }
             }
         }
-        
     }
     
     
