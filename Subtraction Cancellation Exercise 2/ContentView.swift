@@ -62,13 +62,20 @@ struct ContentView: View {
                         .padding()
                 }
                 
+                Spacer()
                 // Add the "Plot" title at the bottom
+               
+               
+                
                 Text("Problem 2b - Log-Log Plot")
                     .underline(true, color: .black)
                     .font(.system(size: 20))
-                    
                 
-            
+                Image("Equation 2.121")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300, height: 300)
+                    .padding()
                 
                 Text("We assume S^(3) is correct. We generate a Log-Log plot based off 1,000,000 iterations for the following versus below:")
                     .font(.headline)
