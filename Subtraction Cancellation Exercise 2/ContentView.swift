@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var inputN: String = ""
+    @State private var inputN2: String = ""
     @State private var resultS1: Float = 0.0
     @State private var resultS2: Float = 0.0
     @State private var resultS3: Float = 0.0
@@ -52,8 +53,8 @@ struct ContentView: View {
                 Text("S^(1) = \(resultS1)")
                 Text("S^(2) = \(resultS2)")
                 Text("S^(3) = \(resultS3)")
-                    
-            
+                
+                
                 
                 // Display error message if present
                 if let errorMessage = errorMessage {
@@ -68,6 +69,8 @@ struct ContentView: View {
                 Text("Problem 2b - Log-Log Plot")
                     .underline(true, color: .black)
                     .font(.system(size: 20))
+               
+    //This shows the "versus" that we are trying to find. It imports an image from assets after dragging and dropping the image of the euqation into the assets folder
                 
                 Image("Equation 2.121")
                     .resizable()
@@ -75,36 +78,43 @@ struct ContentView: View {
                     .frame(width: 300, height: 300)
                     .padding(.vertical, -100)
                 
+                
                 Text("We assume S^(3) is correct. We generate a Log-Log plot based off 1,000,000 iterations for the following versus below:")
                     .font(.headline)
                     .fontWeight(.regular)
                 
+                TextField("Enter N. Ex: 1,000,000", text: $inputN2)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
                 
-                
+                Button("Calculate") {
+                    guard let n2 = Int(inputN2) else {
+                        return
+                        
+                    }
+                }
             }
         }
+        
     }
-}
-            
-
-
-
-
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
