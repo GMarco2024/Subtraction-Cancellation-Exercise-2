@@ -1,8 +1,8 @@
 //
-//  Problem2a.swift
+//  Problem2b.swift
 //
 //  Homework 2
-//  Problem 2b - Log-Log plot
+//  Problem 2b - Log-Log Plot
 //
 //  Marco Gonzalez PHYS-440
 //
@@ -18,15 +18,21 @@ class Problem2b {
             let s3 = calculateS3(n: n)
             let relativeError = abs((s1 - s3) / s3)
             let log10RelativeError = log10(relativeError)
-            results.append("N = \(n): log10 of Relative Error = \(log10RelativeError)")
+            results.append("N = \(n): = \(log10RelativeError)")
         }
 
         return results
     }
 
-    static func calculateLog10N(for N: Int) -> String {
-        let log10N = log10(Double(N))
-        return "N = \(N): log10(N) = \(log10N)"
+    static func calculateLog10N(for N: Int) -> [String] {
+        var results: [String] = []
+
+        for n in 1...N {
+            let log10N = log10(Double(n))
+            results.append("N = \(n):  = \(log10N)")
+        }
+
+        return results
     }
 
     private static func calculateS1(n: Int) -> Double {
@@ -45,6 +51,7 @@ class Problem2b {
         return sum
     }
 }
+
 
 
 
