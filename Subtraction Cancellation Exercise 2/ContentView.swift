@@ -7,7 +7,7 @@ struct ContentView: View {
     @State private var resultS2: Float = 0.0
     @State private var resultS3: Float = 0.0
     @State private var errorMessage: String? = nil
-    @State private var iterations: [Int] = []
+    @State private var log10RelativeErrors: [String] = [] // To store results of problem 2b
     
     var body: some View {
         ScrollView{
@@ -63,15 +63,12 @@ struct ContentView: View {
                         .foregroundColor(.red)
                         .padding()
                 }
-                
                 Spacer()
                 Spacer()
                 
                 Text("Problem 2b - Log-Log Plot")
                     .underline(true, color: .black)
                     .font(.system(size: 20))
-               
-    //This shows the "versus" that we are trying to find. It imports an image from assets after dragging and dropping the image of the euqation into the assets folder
                 
                 Image("Equation 2.121")
                     .resizable()
@@ -79,44 +76,45 @@ struct ContentView: View {
                     .frame(width: 300, height: 300)
                     .padding(.vertical, -100)
                 
-                Text("We assume S^(3) is correct. We generate a Log-Log plot based off 1,000,000 iterations for the following versus below:")
+                Text("We calculate log10|(SN(1)-SN(3)/SN(3)|:")
                     .font(.headline)
                     .fontWeight(.regular)
                 
-          //This displays a plot based on the entered N. Question 2b asks to input 1,000,000 for N. We can also test this plot generator by putting a small N such as N = 5 for 5 plot points.
-                
                 TextField("Enter N (Ex: 1,000,000)", text: $inputN2)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(maxWidth:450)
+                    .frame(maxWidth: 450)
                     .padding()
                 
                 Button("Calculate") {
-                    guard Int(inputN2) != nil else {
+                    // Ensure input is a valid integer
+                    guard let n = Int(inputN2), n > 0 else {
+                        self.errorMessage = "Please enter a valid integer for N."
                         return
-                        
                     }
+                    
+                    self.log10RelativeErrors = Problem2b.calculateLog10RelativeError(for: n)
                 }
+                .padding()
+                
+                ForEach(log10RelativeErrors, id: \.self) { error in
+                    Text(error)
+                }
+                
+                if let errorMessage = errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                    
             }
         }
+        Spacer()
+            Spacer()
+        }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+}
+   
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
