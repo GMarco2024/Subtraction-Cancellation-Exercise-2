@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  Problem2a.swift
 //
 //  Homework 2
 //  Problem 2a - Write a single precision program that calcaultes S^(1), S^(2), and S^(3).
@@ -8,8 +8,6 @@
 //
 
 import Foundation
-
-//Float is a number type. 32-bit in this case, whihc is why we use "Float" and call it "Float"
 
 func calculateS(for N: Float) -> (Float, Float, Float) {
     var s1: Float = 0.0
