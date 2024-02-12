@@ -3,6 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var inputN: String = ""
     @State private var inputN2: String = ""
+    @State private var inputN3: String = ""
     @State private var resultS1: Float = 0.0
     @State private var resultS2: Float = 0.0
     @State private var resultS3: Float = 0.0
@@ -66,7 +67,7 @@ struct ContentView: View {
                 Spacer()
                 Spacer()
                 
-                Text("Problem 2b - Log-Log Plot")
+                Text("Problem 2b -  Calculations")
                     .underline(true, color: .black)
                     .font(.system(size: 20))
                 
@@ -103,8 +104,23 @@ struct ContentView: View {
                 if let errorMessage = errorMessage {
                     Text(errorMessage)
                         .foregroundColor(.red)
-                    
+
             }
+                
+                Text("Problem 2b (Cont.) -  Calculations")
+                    .underline(true, color: .black)
+                    .font(.system(size: 20))
+                
+                
+                Text("We calculate log10(N):")
+                    .font(.headline)
+                    .fontWeight(.regular)
+                
+                TextField("Enter N (Ex: 1,000,000)", text: $inputN3)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(maxWidth: 450)
+                    .padding()
+                
         }
         Spacer()
             Spacer()
