@@ -77,7 +77,7 @@ struct ContentView: View {
                     .frame(width: 300, height: 300)
                     .padding(.vertical, -100)
 
-                Text("We calculate log10|(SN(1)-SN(3)/SN(3)|:")
+                Text("We calculate left side:")
                     .font(.headline)
                     .fontWeight(.regular)
 
@@ -86,7 +86,7 @@ struct ContentView: View {
                     .frame(maxWidth: 450)
                     .padding()
 
-                Button("Calculate") {
+                Button("Calculate log10|(SN(1)-SN(3)/SN(3)|") {
                     guard let n = Int(inputN2), n > 0 else {
                         errorMessage = "Please enter a valid integer for N."
                         return
@@ -105,7 +105,7 @@ struct ContentView: View {
                     .underline(true, color: .black)
                     .font(.system(size: 20))
 
-                Text("We calculate log10(N):")
+                Text("We calculate right side:")
                     .font(.headline)
                     .fontWeight(.regular)
 
