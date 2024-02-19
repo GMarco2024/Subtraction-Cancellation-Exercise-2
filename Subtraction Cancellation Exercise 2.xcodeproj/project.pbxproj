@@ -151,12 +151,12 @@
 		EDDC47982B83C78A008DF3E7 /* Problem 2b Plot */ = {
 			isa = PBXGroup;
 			children = (
-				EDDC47962B83C666008DF3E7 /* Operators.swift */,
-				EDDC47942B83C657008DF3E7 /* PlotClass.swift */,
-				EDDC47922B83C640008DF3E7 /* PlotDataClass.swift */,
-				EDDC47902B83C62D008DF3E7 /* PlotDataStruct.swift */,
-				EDDC478E2B83C615008DF3E7 /* ChangingPlotParameters.swift */,
 				EDDC478C2B83C5FE008DF3E7 /* CalculatePlotData.swift */,
+				EDDC478E2B83C615008DF3E7 /* ChangingPlotParameters.swift */,
+				EDDC47902B83C62D008DF3E7 /* PlotDataStruct.swift */,
+				EDDC47922B83C640008DF3E7 /* PlotDataClass.swift */,
+				EDDC47942B83C657008DF3E7 /* PlotClass.swift */,
+				EDDC47962B83C666008DF3E7 /* Operators.swift */,
 			);
 			path = "Problem 2b Plot";
 			sourceTree = "<group>";

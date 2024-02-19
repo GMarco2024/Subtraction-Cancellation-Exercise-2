@@ -55,7 +55,7 @@ import Observation
     }
     
     func log10N() async {
-        let N = 100 // Example range for N values
+        let N = 1000 // Example range for N values
         var plotData: [(x: Double, y: Double)] = []
 
         for n in 1...N {
@@ -73,7 +73,7 @@ import Observation
     
     
     func plotSN3() async {
-            let N = 100 // Example value for N
+            let N = 1000 // Example value for N
             var sumSN3: Double = 0
             var plotData: [(x: Double, y: Double)] = []
 

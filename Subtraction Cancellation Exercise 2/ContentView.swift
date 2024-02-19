@@ -102,7 +102,7 @@ struct ContentView: View {
                     guard let n = Int(inputN2), n > 0 else {
                         errorMessage = "Please enter a valid integer for N."
                         return
-                    
+                        
                     }
                     
                     log10RelativeErrors = Problem2b.calculateLog10RelativeError(for: n)
@@ -132,6 +132,7 @@ struct ContentView: View {
                     guard let n = Int(inputN3), n > 0 else {
                         errorMessage = "Please enter a valid integer for N."
                         return
+                   
                     }
                     log10NResults = Problem2b.calculateLog10N(for: n)
                 }
@@ -139,7 +140,6 @@ struct ContentView: View {
                 
                 ForEach(log10NResults, id: \.self) { result in
                     Text(result)
-                    
                     
                 }
                 
@@ -150,171 +150,137 @@ struct ContentView: View {
                     Text(errorMessage)
                         .foregroundColor(.red)
                         .padding()
+              
                 }
-                    Group{
-                        
-                        HStack(alignment: .center, spacing: 0) {
-                            
-                            Text($plotData.plotArray[selector].changingPlotParameters.yLabel.wrappedValue)
-                                .rotationEffect(Angle(degrees: -90))
-                                .foregroundColor(.red)
-                                .padding()
-                            VStack {
-                                Chart($plotData.plotArray[selector].plotData.wrappedValue) {
-                                    LineMark(
-                                        x: .value("Position", $0.xVal),
-                                        y: .value("Height", $0.yVal)
-                                        
-                                    )
-                                    .foregroundStyle($plotData.plotArray[selector].changingPlotParameters.lineColor.wrappedValue)
-                                    PointMark(x: .value("Position", $0.xVal), y: .value("Height", $0.yVal))
-                                    
-                                        .foregroundStyle($plotData.plotArray[selector].changingPlotParameters.lineColor.wrappedValue)
-                                    
-                                    
-                                }
-                                .chartYScale(domain: [ plotData.plotArray[selector].changingPlotParameters.yMin ,  plotData.plotArray[selector].changingPlotParameters.yMax ])
-                                .chartXScale(domain: [ plotData.plotArray[selector].changingPlotParameters.xMin ,  plotData.plotArray[selector].changingPlotParameters.xMax ])
-                                .chartYAxis {
-                                    AxisMarks(position: .leading)
-                                }
-                                .padding()
-                                Text($plotData.plotArray[selector].changingPlotParameters.xLabel.wrappedValue)
-                                    .foregroundColor(.red)
-                            }
-                        }
-                        // .frame(width: 350, height: 400, alignment: .center)
-                        .frame(alignment: .center)
-                        
-                    }
+                
+                Text("Problem 2b Plot")
+                    .underline(true, color: .black)
+                    .font(.system(size: 20))
+                
+                Text("We plot N = 1,000,000 for the problem asked.")
+                    .font(.headline)
+                    .fontWeight(.regular)
+                
+                Text("Note: Considering the large number of a million, it may take a while for points to be generated.")
+                    .foregroundColor(.red)
+                    .font(.headline)
+                    .fontWeight(.regular)
+                
+                Group{
                     
+                    HStack(alignment: .center, spacing: 0) {
+                        
+                        Text($plotData.plotArray[selector].changingPlotParameters.yLabel.wrappedValue)
+                            .rotationEffect(Angle(degrees: -90))
+                            .foregroundColor(.red)
+                            .padding()
+                        VStack {
+                            Chart($plotData.plotArray[selector].plotData.wrappedValue) {
+                                LineMark(
+                                    x: .value("Position", $0.xVal),
+                                    y: .value("Height", $0.yVal)
+                                    
+                                )
+                                .foregroundStyle($plotData.plotArray[selector].changingPlotParameters.lineColor.wrappedValue)
+                                PointMark(x: .value("Position", $0.xVal), y: .value("Height", $0.yVal))
+                                
+                                    .foregroundStyle($plotData.plotArray[selector].changingPlotParameters.lineColor.wrappedValue)
+                                
+                            }
+                            .chartYScale(domain: [ plotData.plotArray[selector].changingPlotParameters.yMin ,  plotData.plotArray[selector].changingPlotParameters.yMax ])
+                            .chartXScale(domain: [ plotData.plotArray[selector].changingPlotParameters.xMin ,  plotData.plotArray[selector].changingPlotParameters.xMax ])
+                            .chartYAxis {
+                                AxisMarks(position: .leading)
+                            }
+                            .padding()
+                            Text($plotData.plotArray[selector].changingPlotParameters.xLabel.wrappedValue)
+                                .foregroundColor(.red)
+                        }
+                    }
+                    // .frame(width: 350, height: 400, alignment: .center)
+                    .frame(alignment: .center)
+                    
+                }
+                
+                .padding()
+                
+                Divider()
+                
+                HStack{
+                    Button("plotSN3", action: {
+                        
+                        Task.init{
+                            
+                            self.selector = 0
+                            await self.calculate()
+                        }
+                    }
+                           
+                    )
                     .padding()
                     
-                    Divider()
-                    
-                    
-                    
-                    HStack{
-                        Button("plotSN3", action: {
-                            
-                            Task.init{
-                                
-                                self.selector = 0
-                                await self.calculate()
-                            }
-                            
-                            
-                            
-                        }
-                               
-                               
-                        )
-                        .padding()
+                }
+                
+                HStack{
+                    Button("Log10N", action: { Task.init{
                         
-                    }
-                    
-                    HStack{
-                        Button("Log10N", action: { Task.init{
-                            
-                            self.selector = 1
-                            
-                            await self.calculate2()
-                            
-                            
-                        }
-                        }
-                               
-                               
-                        )
-                        .padding()
+                        self.selector = 1
                         
+                        await self.calculate2()
+
                     }
+                    }
+                           
+                    )
+                    .padding()
                     
                 }
-                
             }
-            
-            
-            
         }
-        
-        @MainActor func setupPlotDataModel(selector: Int){
-            
-            calculator.plotDataModel = self.plotData.plotArray[selector]
-        }
-        
-        
-        /// calculate
-        /// Function accepts the command to start the calculation from the GUI
-        func calculate() async {
-            
-            //pass the plotDataModel to the Calculator
-            
-            await setupPlotDataModel(selector: 0)
-            
-            
-            let _ = await withTaskGroup(of:  Void.self) { taskGroup in
-                
-                
-                
-                taskGroup.addTask {
-                    
-                    
-                    
-                    //Calculate the new plotting data and place in the plotDataModel
-                    await calculator.plotSN3()
-                    
-                    
-                }
-                
-                
-            }
-            
-            
-            
-            
-        }
-        
-        
-        /// calculate
-        /// Function accepts the command to start the calculation from the GUI
-        func calculate2() async {
-            
-            
-            //pass the plotDataModel to the Calculator
-            
-            await setupPlotDataModel(selector: 1)
-            
-            
-            
-            let _ = await withTaskGroup(of:  Void.self) { taskGroup in
-                
-                
-                
-                taskGroup.addTask {
-                    
-                    
-                    
-                    
-                    
-                    
-                    //Calculate the new plotting data and place in the plotDataModel
-                    await calculator.log10N()
-                    
-                    
-                }
-                
-            }
-            
-            
-            
-            
-        }
-        
-        
-        
-        
     }
+    
+    @MainActor func setupPlotDataModel(selector: Int){
+        
+        calculator.plotDataModel = self.plotData.plotArray[selector]
+    }
+    
+    /// calculate
+    /// Function accepts the command to start the calculation from the GUI
+    func calculate() async {
+        
+        //pass the plotDataModel to the Calculator
+        
+        await setupPlotDataModel(selector: 0)
+        
+        let _ = await withTaskGroup(of:  Void.self) { taskGroup in
+            
+            taskGroup.addTask {
+                
+    //Calculate the new plotting data and place in the plotDataModel
+    
+                await calculator.plotSN3()
+                
+            }
+        }
+    }
+    
+    /// calculate
+    /// Function accepts the command to start the calculation from the GUI
+    func calculate2() async {
+        
+        await setupPlotDataModel(selector: 1)
+         
+        let _ = await withTaskGroup(of:  Void.self) { taskGroup in
+            
+            taskGroup.addTask {
+                     
+                //Calculate the new plotting data and place in the plotDataModel
+                await calculator.log10N()
+                
+            }
+        }
+    }
+}
     
     #Preview {
         ContentView()

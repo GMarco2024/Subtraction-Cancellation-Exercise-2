@@ -19,6 +19,5 @@ import Observation
         self.plotArray.append(contentsOf: [PlotDataClass.init(fromLine: true)])
             
         }
-
-    
+ 
 }
