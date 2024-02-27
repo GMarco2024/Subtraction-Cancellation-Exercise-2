@@ -27,6 +27,8 @@ class Problem2b {
     static func calculateLog10N(for N: Int) -> [String] {
         var results: [String] = []
 
+    // Loop through each number from 1 to N
+        
         for n in 1...N {
             let log10N = log10(Double(n))
             results.append("N = \(n):  = \(log10N)")
@@ -34,7 +36,9 @@ class Problem2b {
 
         return results
     }
-
+    
+    // Private static method to calculate the sum S1 for a given n
+    
     private static func calculateS1(n: Int) -> Double {
         var sum: Double = 0.0
         for i in 1...(2 * n) {
@@ -42,6 +46,8 @@ class Problem2b {
         }
         return sum
     }
+    
+    // Private static method to calculate the sum S3 for a given n
 
     private static func calculateS3(n: Int) -> Double {
         var sum: Double = 0.0

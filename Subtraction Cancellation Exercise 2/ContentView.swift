@@ -4,6 +4,9 @@
 //
 //  Modified by Marco Gonzalez 2/11/24
 //
+//  Reference for plotting.
+//  https://github.com/jterry94/Charts-Plot-Observation
+//
 
 import SwiftUI
 import Charts
@@ -111,6 +114,7 @@ struct ContentView: View {
                 
                 ForEach(log10RelativeErrors, id: \.self) { error in
                     Text(error)
+                    
                 }
                 
                 Spacer()

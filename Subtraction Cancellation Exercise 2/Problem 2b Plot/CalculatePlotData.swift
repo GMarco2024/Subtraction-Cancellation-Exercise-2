@@ -5,6 +5,8 @@
 //  Created by Jeff_Terry on 1/15/24.
 //  Modified by Marco Gonzalez 2/11/24
 //
+//  Reference for plotting
+//  https://github.com/jterry94/Charts-Plot-Observation
 
 import Foundation
 import SwiftUI
@@ -53,6 +55,9 @@ import Observation
     @MainActor func appendDataToPlot(plotData: [(x: Double, y: Double)]) {
         plotDataModel!.appendData(dataPoint: plotData)
     }
+  
+    
+    //Functions for plotting from HW 2 Problem.
     
     func log10N() async {
         let N = 1000 // Example range for N values
@@ -71,6 +76,7 @@ import Observation
         
     }
     
+    //Functions for plotting from HW 2 Problem.
     
     func plotSN3() async {
             let N = 1000 // Example value for N
