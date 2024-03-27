@@ -9,6 +9,15 @@
 
 import Foundation
 
+//              _                       _
+//             |  |  (1)      (3) |      |
+//             |  | S     -  S    |      |
+//             |  |  N        N   |      |
+//   {log}     |  | ------------- |      |
+//          10 |  |      (3)      |      |
+//             |  |     S         |      |
+//             |_ |      N        |     _|
+
 class Problem2b {
     static func calculateLog10RelativeError(for N: Int) -> [String] {
         var results: [String] = []
@@ -28,6 +37,10 @@ class Problem2b {
         var results: [String] = []
 
     // Loop through each number from 1 to N
+    
+    //   {log}  (N)
+    //         10
+
         
         for n in 1...N {
             let log10N = log10(Double(n))
